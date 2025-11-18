@@ -1,12 +1,12 @@
 """Tests for utility functions."""
 
-import os
 import pytest
+
 from zaban._utils import (
+    SUPPORTED_LANGUAGES,
     get_api_key_from_env,
     validate_api_key,
     validate_language_code,
-    SUPPORTED_LANGUAGES,
 )
 
 
@@ -71,9 +71,8 @@ def test_supported_languages():
     assert "eng_Latn" in SUPPORTED_LANGUAGES
     assert "hin_Deva" in SUPPORTED_LANGUAGES
     assert len(SUPPORTED_LANGUAGES) == 23  # 22 Indian languages + English
-    
+
     # Check some specific languages
     assert SUPPORTED_LANGUAGES["eng_Latn"] == "English (Latin)"
     assert SUPPORTED_LANGUAGES["hin_Deva"] == "Hindi (Devanagari)"
     assert SUPPORTED_LANGUAGES["tam_Taml"] == "Tamil (Tamil)"
-

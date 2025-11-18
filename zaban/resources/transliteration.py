@@ -1,23 +1,24 @@
 """Transliteration resource for Zaban API."""
 
-from typing import Optional, TYPE_CHECKING
+from typing import TYPE_CHECKING
+
 from ..types.transliteration import TransliterationRequest, TransliterationResponse
 
 if TYPE_CHECKING:
-    from .._client import BaseClient, AsyncBaseClient
+    from .._client import AsyncBaseClient, BaseClient
 
 
 class Transliteration:
     """Transliteration resource for sync client."""
-    
+
     def __init__(self, client: "BaseClient"):
         """Initialize transliteration resource.
-        
+
         Args:
             client: Base HTTP client
         """
         self._client = client
-    
+
     def create(
         self,
         *,
@@ -28,17 +29,17 @@ class Transliteration:
         topk: int = 1,
     ) -> TransliterationResponse:
         """Transliterate text from one script to another.
-        
+
         Args:
             text: Text to transliterate
             source_script: Source script (e.g., 'latn' for Latin)
             target_script: Target script (e.g., 'deva' for Devanagari)
             lang: Language code (e.g., 'hi' for Hindi)
             topk: Number of top results to return
-            
+
         Returns:
             TransliterationResponse with transliterated results
-            
+
         Example:
             ```python
             result = client.transliteration.create(
@@ -59,27 +60,27 @@ class Transliteration:
             lang=lang,
             topk=topk,
         )
-        
+
         response_data = self._client.request(
             method="POST",
             path="/transliterate",
             json=request.model_dump(),
         )
-        
+
         return TransliterationResponse(**response_data)
 
 
 class AsyncTransliteration:
     """Transliteration resource for async client."""
-    
+
     def __init__(self, client: "AsyncBaseClient"):
         """Initialize async transliteration resource.
-        
+
         Args:
             client: Async base HTTP client
         """
         self._client = client
-    
+
     async def create(
         self,
         *,
@@ -90,14 +91,14 @@ class AsyncTransliteration:
         topk: int = 1,
     ) -> TransliterationResponse:
         """Transliterate text from one script to another (async).
-        
+
         Args:
             text: Text to transliterate
             source_script: Source script (e.g., 'latn' for Latin)
             target_script: Target script (e.g., 'deva' for Devanagari)
             lang: Language code (e.g., 'hi' for Hindi)
             topk: Number of top results to return
-            
+
         Returns:
             TransliterationResponse with transliterated results
         """
@@ -108,12 +109,11 @@ class AsyncTransliteration:
             lang=lang,
             topk=topk,
         )
-        
+
         response_data = await self._client.request(
             method="POST",
             path="/transliterate",
             json=request.model_dump(),
         )
-        
-        return TransliterationResponse(**response_data)
 
+        return TransliterationResponse(**response_data)

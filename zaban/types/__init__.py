@@ -1,10 +1,10 @@
 """Type definitions for Zaban API."""
 
 from .common import LanguageCode
-from .translation import TranslationRequest, TranslationResponse
-from .tts import TTSRequest, TTSResponse, AudioFormat, Speaker
 from .stt import STTRequest, STTResponse
-from .transliteration import TransliterationRequest, TransliterationResponse, Script
+from .translation import TranslationRequest, TranslationResponse
+from .transliteration import Script, TransliterationRequest, TransliterationResponse
+from .tts import AudioFormat, Speaker, TTSRequest, TTSResponse
 
 __all__ = [
     "LanguageCode",
@@ -20,4 +20,3 @@ __all__ = [
     "TransliterationResponse",
     "Script",
 ]
-

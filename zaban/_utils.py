@@ -6,9 +6,9 @@ from typing import Optional
 
 def get_api_key_from_env() -> Optional[str]:
     """Get API key from environment variables.
-    
+
     Checks ZABAN_API_KEY first, then falls back to ZABAN_KEY.
-    
+
     Returns:
         API key if found, None otherwise
     """
@@ -17,13 +17,13 @@ def get_api_key_from_env() -> Optional[str]:
 
 def validate_api_key(api_key: Optional[str]) -> str:
     """Validate API key format.
-    
+
     Args:
         api_key: API key to validate
-        
+
     Returns:
         Validated API key
-        
+
     Raises:
         ValueError: If API key is invalid
     """
@@ -31,10 +31,10 @@ def validate_api_key(api_key: Optional[str]) -> str:
         raise ValueError(
             "API key is required. Pass it as api_key parameter or set ZABAN_API_KEY environment variable."
         )
-    
+
     if not api_key.startswith("sk-"):
         raise ValueError("API key must start with 'sk-'")
-    
+
     return api_key
 
 
@@ -68,13 +68,13 @@ SUPPORTED_LANGUAGES = {
 
 def validate_language_code(code: str) -> str:
     """Validate language code against supported languages.
-    
+
     Args:
         code: Language code to validate
-        
+
     Returns:
         Validated language code
-        
+
     Raises:
         ValueError: If language code is not supported
     """
@@ -84,4 +84,3 @@ def validate_language_code(code: str) -> str:
             f"Supported languages: {', '.join(SUPPORTED_LANGUAGES.keys())}"
         )
     return code
-

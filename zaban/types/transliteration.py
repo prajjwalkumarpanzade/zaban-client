@@ -1,13 +1,14 @@
 """Transliteration type definitions."""
 
 from enum import Enum
-from typing import Optional, List
+from typing import List, Optional
+
 from pydantic import BaseModel, Field
 
 
 class Script(str, Enum):
     """Supported script types."""
-    
+
     LATN = "latn"  # Latin
     DEVA = "deva"  # Devanagari
     BENG = "beng"  # Bengali
@@ -25,7 +26,7 @@ class Script(str, Enum):
 
 class TransliterationRequest(BaseModel):
     """Request model for transliteration."""
-    
+
     text: str = Field(..., description="Text to transliterate")
     source_script: str = Field(..., description="Source script (e.g., 'latn')")
     target_script: str = Field(..., description="Target script (e.g., 'deva')")
@@ -35,18 +36,17 @@ class TransliterationRequest(BaseModel):
 
 class TransliterationResponse(BaseModel):
     """Response model for transliteration."""
-    
+
     results: List[str] = Field(..., description="List of transliterated results")
     source_script: str = Field(..., description="Source script")
     target_script: str = Field(..., description="Target script")
     language: str = Field(..., description="Language")
-    
+
     def __str__(self) -> str:
         """Return the top result when converting to string."""
         return self.results[0] if self.results else ""
-    
+
     @property
     def top(self) -> str:
         """Get the top transliteration result."""
         return self.results[0] if self.results else ""
-

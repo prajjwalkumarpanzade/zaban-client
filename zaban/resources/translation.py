@@ -1,23 +1,24 @@
 """Translation resource for Zaban API."""
 
-from typing import Optional, TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional
+
 from ..types.translation import TranslationRequest, TranslationResponse
 
 if TYPE_CHECKING:
-    from .._client import BaseClient, AsyncBaseClient
+    from .._client import AsyncBaseClient, BaseClient
 
 
 class Translation:
     """Translation resource for sync client."""
-    
+
     def __init__(self, client: "BaseClient"):
         """Initialize translation resource.
-        
+
         Args:
             client: Base HTTP client
         """
         self._client = client
-    
+
     def create(
         self,
         *,
@@ -28,17 +29,17 @@ class Translation:
         domain: Optional[str] = None,
     ) -> TranslationResponse:
         """Translate text from source language to target language.
-        
+
         Args:
             text: Text to translate
             target_lang: Target language code (e.g., 'hin_Deva')
             source_lang: Source language code (optional, auto-detected if not provided)
             auto_detect: Enable automatic source language detection
             domain: Translation domain (optional)
-            
+
         Returns:
             TranslationResponse with translated text
-            
+
         Example:
             ```python
             # English to Hindi
@@ -48,7 +49,7 @@ class Translation:
                 target_lang="hin_Deva"
             )
             print(result.translated_text)  # "आप कैसे हैं?"
-            
+
             # With auto-detection
             result = client.translation.create(
                 text="Hello",
@@ -64,15 +65,15 @@ class Translation:
             domain=domain,
             auto_detect=auto_detect,
         )
-        
+
         response_data = self._client.request(
             method="POST",
             path="/translate",
             json=request.model_dump(exclude_none=True),
         )
-        
+
         return TranslationResponse(**response_data)
-    
+
     def translate(
         self,
         text: str,
@@ -82,16 +83,16 @@ class Translation:
         auto_detect: bool = False,
     ) -> TranslationResponse:
         """Convenience method for translation with simpler parameter names.
-        
+
         Args:
             text: Text to translate
             to: Target language code
             from_: Source language code (optional)
             auto_detect: Enable automatic source language detection
-            
+
         Returns:
             TranslationResponse with translated text
-            
+
         Example:
             ```python
             result = client.translation.translate(
@@ -111,15 +112,15 @@ class Translation:
 
 class AsyncTranslation:
     """Translation resource for async client."""
-    
+
     def __init__(self, client: "AsyncBaseClient"):
         """Initialize async translation resource.
-        
+
         Args:
             client: Async base HTTP client
         """
         self._client = client
-    
+
     async def create(
         self,
         *,
@@ -130,17 +131,17 @@ class AsyncTranslation:
         domain: Optional[str] = None,
     ) -> TranslationResponse:
         """Translate text from source language to target language (async).
-        
+
         Args:
             text: Text to translate
             target_lang: Target language code (e.g., 'hin_Deva')
             source_lang: Source language code (optional, auto-detected if not provided)
             auto_detect: Enable automatic source language detection
             domain: Translation domain (optional)
-            
+
         Returns:
             TranslationResponse with translated text
-            
+
         Example:
             ```python
             result = await client.translation.create(
@@ -157,15 +158,15 @@ class AsyncTranslation:
             domain=domain,
             auto_detect=auto_detect,
         )
-        
+
         response_data = await self._client.request(
             method="POST",
             path="/translate",
             json=request.model_dump(exclude_none=True),
         )
-        
+
         return TranslationResponse(**response_data)
-    
+
     async def translate(
         self,
         text: str,
@@ -175,13 +176,13 @@ class AsyncTranslation:
         auto_detect: bool = False,
     ) -> TranslationResponse:
         """Convenience method for translation with simpler parameter names (async).
-        
+
         Args:
             text: Text to translate
             to: Target language code
             from_: Source language code (optional)
             auto_detect: Enable automatic source language detection
-            
+
         Returns:
             TranslationResponse with translated text
         """
@@ -191,4 +192,3 @@ class AsyncTranslation:
             source_lang=from_,
             auto_detect=auto_detect,
         )
-

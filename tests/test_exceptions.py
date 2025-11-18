@@ -1,15 +1,14 @@
 """Tests for exception handling."""
 
-import pytest
 from zaban._exceptions import (
-    ZabanError,
-    AuthenticationError,
-    RateLimitError,
-    ValidationError,
     APIError,
-    TimeoutError,
+    AuthenticationError,
     ConnectionError,
+    RateLimitError,
+    TimeoutError,
     UnsupportedLanguageError,
+    ValidationError,
+    ZabanError,
 )
 
 
@@ -24,7 +23,7 @@ def test_authentication_error():
     """Test AuthenticationError."""
     error = AuthenticationError()
     assert "Invalid or missing API key" in str(error)
-    
+
     custom_error = AuthenticationError("Custom message")
     assert str(custom_error) == "Custom message"
 
@@ -72,4 +71,3 @@ def test_error_inheritance():
     assert issubclass(RateLimitError, ZabanError)
     assert issubclass(ValidationError, ZabanError)
     assert issubclass(APIError, ZabanError)
-

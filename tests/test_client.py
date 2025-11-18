@@ -1,8 +1,8 @@
 """Tests for Zaban client initialization and configuration."""
 
 import pytest
-from zaban import Zaban, AsyncZaban
-from zaban._exceptions import ZabanError
+
+from zaban import AsyncZaban, Zaban
 
 
 def test_client_initialization_with_api_key():
@@ -26,10 +26,7 @@ def test_client_initialization_no_api_key():
 
 def test_client_custom_base_url():
     """Test client with custom base URL."""
-    client = Zaban(
-        api_key="sk-test-key",
-        base_url="https://api.example.com/v1"
-    )
+    client = Zaban(api_key="sk-test-key", base_url="https://api.example.com/v1")
     assert client._client.base_url == "https://api.example.com/v1"
 
 
@@ -83,4 +80,3 @@ def test_async_client_has_resources():
     assert hasattr(client, "translation")
     assert hasattr(client, "audio")
     assert hasattr(client, "transliteration")
-

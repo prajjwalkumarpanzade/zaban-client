@@ -1,6 +1,6 @@
 """Base HTTP client for Zaban API."""
 
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, cast
 
 import httpx
 
@@ -127,7 +127,7 @@ class BaseClient:
                 self._handle_error_response(response)
 
             # Return JSON response
-            return response.json()
+            return cast(Dict[str, Any], response.json())
 
         except httpx.TimeoutException as e:
             raise TimeoutError(f"Request timed out after {self.timeout}s") from e
@@ -262,7 +262,7 @@ class AsyncBaseClient:
                 self._handle_error_response(response)
 
             # Return JSON response
-            return response.json()
+            return cast(Dict[str, Any], response.json())
 
         except httpx.TimeoutException as e:
             raise TimeoutError(f"Request timed out after {self.timeout}s") from e

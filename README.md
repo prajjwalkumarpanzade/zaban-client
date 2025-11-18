@@ -238,7 +238,7 @@ except ZabanError as e:
 
 ## 🔑 Getting an API Key
 
-1. Sign up at [Zaban Dashboard](https://zaban.ai/dashboard)
+1. Sign up at [Zaban Dashboard]
 2. Navigate to API Keys section
 3. Create a new API key
 4. Copy the key (starts with `sk-`)
@@ -262,14 +262,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🔗 Links
 
-- [GitHub Repository](https://github.com/yourusername/zaban-python)
+- [GitHub Repository](https://github.com/prajjwalkumarpanzade/zaban-client)
 - [Zaban API Documentation](https://zaban.ai/docs)
 - [AI4Bharat](https://ai4bharat.org)
 - [IndicTrans2](https://github.com/AI4Bharat/IndicTrans2)
 
 ## 💬 Support
 
-- GitHub Issues: [Report bugs or request features](https://github.com/yourusername/zaban-python/issues)
+- GitHub Issues: [Report bugs or request features](https://github.com/prajjwalkumarpanzade/zaban-client/issues)
 - Email: support@zaban.ai
 
 ## 🙏 Acknowledgments
@@ -280,5 +280,5 @@ Built with ❤️ using AI4Bharat's amazing open-source models:
 
 ---
 
-**Note**: This is an unofficial client. For official API documentation, visit [zaban.ai/docs](https://zaban.ai/docs).
+**Note**: This is an unofficial client. For official API documentation.
 

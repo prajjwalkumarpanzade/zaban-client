@@ -64,10 +64,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/zaban-python"
-Documentation = "https://github.com/yourusername/zaban-python#readme"
-Repository = "https://github.com/yourusername/zaban-python"
-"Bug Tracker" = "https://github.com/yourusername/zaban-python/issues"
+Homepage = "https://github.com/prajjwalkumarpanzade/zaban-client"
+Documentation = "https://github.com/prajjwalkumarpanzade/zaban-client/blob/main/README.md"
+Repository = "https://github.com/prajjwalkumarpanzade/zaban-client"
+"Bug Tracker" = "https://github.com/prajjwalkumarpanzade/zaban-client/issues"
 
 [tool.setuptools]
 packages = ["zaban", "zaban.types", "zaban.resources"]

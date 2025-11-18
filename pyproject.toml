@@ -4,17 +4,16 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "zaban"
-version = "0.1.1"
-description = "Official Python client for Zaban API - AI4Bharat services for Indian languages"
+version = "0.1.2"
+description = "Official Python client for Zaban API - Zaban services for Indian languages"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "MIT"}
 authors = [
-    {name = "Zaban Team", email = "support@zaban.ai"}
+    {name = "Zaban Team", email = "prajjwalkumarpanzade01@gmail.com"}
 ]
 keywords = [
     "zaban",
-    "ai4bharat",
     "translation",
     "indictrans2",
     "tts",

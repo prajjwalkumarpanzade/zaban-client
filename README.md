@@ -4,7 +4,7 @@
 [![Python Support](https://img.shields.io/pypi/pyversions/zaban.svg)](https://pypi.org/project/zaban/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Official Python client for **Zaban API** - providing access to AI4Bharat services for Indian languages including translation, text-to-speech, speech-to-text, and transliteration.
+Official Python client for **Zaban API** - providing access to Zaban services for Indian languages including translation, text-to-speech, speech-to-text, and transliteration.
 
 ## 🌟 Features
 
